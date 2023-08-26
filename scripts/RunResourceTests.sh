@@ -2,6 +2,6 @@
 
 cd /var/www/
 npm i
-sudo systemctl start firstServer
+sudo systemctl restart firstServer
 
 exit 0

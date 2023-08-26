@@ -2,4 +2,18 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user
+    destination: /home/ec2-user/
+hooks:
+  BeforeInstall:
+    - location: scripts/UnzipResourceBundle.sh
+    - location: scripts/UnzipDataBundle.sh
+  AfterInstall:
+    - location: scripts/RunResourceTests.sh
+      timeout: 180
+  ApplicationStart:
+    - location: scripts/RunFunctionalTests.sh
+      timeout: 3600
+  ValidateService:
+    - location: scripts/MonitorService.sh
+      timeout: 3600
+      runas: codedeployuser

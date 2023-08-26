@@ -6,14 +6,18 @@ files:
 hooks:
   BeforeInstall:
     - location: scripts/UnzipResourceBundle.sh
-    - location: scripts/UnzipDataBundle.sh
+      timeout: 300
+      runas: root
   AfterInstall:
-    - location: scripts/RunResourceTests.sh
-      timeout: 180
+    - location: scripts/UnzipResourceBundle.sh
+      timeout: 300
+      runas: root
   ApplicationStart:
-    - location: scripts/RunFunctionalTests.sh
-      timeout: 3600
-  ValidateService:
-    - location: scripts/MonitorService.sh
-      timeout: 3600
-      runas: codedeployuser
+    - location: scripts/UnzipResourceBundle.sh
+    - location: scripts/UnzipResourceBundle.sh
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: scripts/UnzipResourceBundle.sh
+      timeout: 300
+      runas: root

@@ -6,6 +6,6 @@ files:
     runas: ec2-user
 hooks:
   AfterInstall:
-    - location: Scripts/RunResourceTests.sh
+    - location: scripts/RunResourceTests.sh
       timeout: 180
   

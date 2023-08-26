@@ -4,3 +4,8 @@ files:
   - source: /
     destination: /var/www/
     runas: ec2-user
+hooks:
+  AfterInstall:
+    - location: Scripts/RunResourceTests.sh
+      timeout: 180
+  

@@ -7,7 +7,7 @@ app.get('/health', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-  res.send('fisrt server')
+  res.send('fisrt server!')
 })
 
 app.listen(port, () => {

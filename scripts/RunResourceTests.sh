@@ -1,6 +1,6 @@
 #!/bin/sh
 
-node install
+npm install
 sudo systemctl start firstServer
 
 exit 0

@@ -3,21 +3,4 @@ os: linux
 files:
   - source: /
     destination: /home/ec2-user/
-hooks:
-  BeforeInstall:
-    - location: scripts/UnzipResourceBundle.sh
-      timeout: 300
-      runas: root
-  AfterInstall:
-    - location: scripts/UnzipResourceBundle.sh
-      timeout: 300
-      runas: root
-  ApplicationStart:
-    - location: scripts/UnzipResourceBundle.sh
-    - location: scripts/UnzipResourceBundle.sh
-      timeout: 300
-      runas: root
-  ApplicationStop:
-    - location: scripts/UnzipResourceBundle.sh
-      timeout: 300
-      runas: root
+    runas: ec2-user
